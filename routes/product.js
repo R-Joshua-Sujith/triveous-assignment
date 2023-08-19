@@ -15,7 +15,7 @@ router.post("/createCategory", async (req, res) => {
 
         const newCategory = new CategoryModel({ category_name });
         await newCategory.save();
-        res.status(201).json({ message: 'Category created successfully' });
+        res.status(201).json({ message: 'Category created successfully', category: newCategory });
     } catch (error) {
         res.status(500).json({ error: 'Internal server error' });
     }
